@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------------------
+# Servereinstellungen fuer den echten Webserver (Apache, z. B. All-Inkl, Hetzner).
+# Auf der GitHub-Vorschau wird diese Datei ignoriert.
+# VOR DEM LIVEGANG einmal auf dem Server testen.
+# ---------------------------------------------------------------------------
+
+# --- Immer https und immer www ---------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.puchmayr.de/$1 [R=301,L]
+
+# --- Schoene Adressen: /vollkeramik/  zeigt  vollkeramik.html --------------
+# (Das sind die Adressen der alten WordPress-Seite; so bleiben alle Links
+#  und Google-Treffer gueltig.)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([a-z0-9-]+)/?$ $1.html [L]
+
+# --- Fehlerseite -----------------------------------------------------------
+ErrorDocument 404 /index.html
+
+# --- Sicherheits-Kopfzeilen -----------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --- Zwischenspeicher im Browser (schnellere Seite) --------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# --- Komprimierung ----------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Keine Verzeichnislisten ----------------------------------------------
+Options -Indexes
