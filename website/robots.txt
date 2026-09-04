@@ -1,0 +1,6 @@
+# Puchmayr Dentaltechnik GmbH
+# Vor dem Livegang die Domain in der Sitemap-Zeile pruefen.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.puchmayr.de/sitemap.xml
