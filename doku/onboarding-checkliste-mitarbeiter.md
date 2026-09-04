@@ -87,6 +87,10 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
       in 10–20 Minuten noch einmal). Der Kundenname wird klein und ohne Umlaute geschrieben,
       z. B. `puchmayr`, `praxis-mueller`. Kein DNS-Eintrag nötig – das ist einmalig für alle
       erledigt (Stern-Eintrag `*.vorschau.ao-consult.de` bei Raidboxes).
+      **Nicht wundern:** Zeigt der eigene Browser danach „Website nicht erreichbar"
+      (DNS_PROBE_FINISHED_NXDOMAIN), obwohl GitHub grün ist, hängt das am Zwischenspeicher
+      des eigenen Rechners. Einfach bis zu einer Stunde warten oder den Link auf dem Handy
+      (Mobilfunk) testen. Für den Kunden funktioniert er sofort.
 - [ ] **D6 [M] Vorschau-Link prüfen** (`https://<kunde>.vorschau.ao-consult.de`) und an den
       Kunden schicken.
 - [ ] **D7 [A/M] Livegang** nach `doku/livegang-anleitung.md` (Hoster, Formular, Datenschutz,
