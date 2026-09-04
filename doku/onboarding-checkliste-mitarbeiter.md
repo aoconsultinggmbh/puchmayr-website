@@ -26,19 +26,23 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
 - [ ] **A7 [A] Prüfen, dass Mitglieder Projekte anlegen dürfen:**
       github.com/organizations/aoconsultinggmbh/settings/member_privileges →
       „Repository creation" → Public angehakt.
-- [ ] **A8 [M] Eigenen Zugangsschlüssel für Claude erstellen.** GitHub → Profilbild → Settings
-      → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token:
-      - Token name: `Claude – Kundenwebseiten – <Vorname>`
+- [ ] **A8 [M] Eigenen Zugangsschlüssel für Claude erstellen.** Wichtig zum Verständnis: Der
+      Schlüssel gehört zur **Person**, nicht zu einem Projekt. Jeder Mitarbeiter hat genau einen,
+      der für alle Kundenseiten gilt. Erstellt wird er im **eigenen** GitHub-Konto:
+      github.com/settings/personal-access-tokens → Generate new token:
+      - Token name: `<Vorname> – Claude – Kundenwebseiten`
       - Expiration: 1 Jahr (GitHub erinnert eine Woche vorher per Mail)
       - Resource owner: **aoconsultinggmbh** (steht das Firmenprofil nicht in der Liste → Admir
         prüft github.com/organizations/aoconsultinggmbh/settings/personal-access-tokens und
         erlaubt fine-grained Tokens für Mitglieder)
       - Repository access: **All repositories**
-      - Repository permissions: **Contents, Pages, Workflows, Secrets** je „Read and write"
+      - Permissions → „+ Add permissions" → **Contents, Pages, Workflows, Secrets** auswählen,
+        danach bei allen vier das Aufklappmenü auf **„Read and write"** stellen
+        (Metadata: Read-only setzt GitHub automatisch dazu, das ist richtig)
       - Generate token → Text (`github_pat_…`) kopieren
       Falls GitHub „pending approval" meldet: Admir genehmigt unter Settings → Personal access tokens.
-- [ ] **A9 [M] Schlüssel im Passwort-Manager ablegen.** Eintrag „GitHub – Kundenwebseiten –
-      Claude" im eigenen Tresor. **Nie** in Notizen, Chats, Mails oder Dateien speichern.
+- [ ] **A9 [M] Schlüssel im Passwort-Manager ablegen.** Eintrag „GitHub – <Vorname> – Claude –
+      Kundenwebseiten" im eigenen Tresor. **Nie** in Notizen, Chats, Mails oder Dateien speichern.
 - [ ] **A10 [A] Passwort-Manager: Ordner „Kundenwebseiten" freigeben** (für Hoster-Zugänge,
       die später dazukommen).
 
