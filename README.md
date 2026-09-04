@@ -24,8 +24,8 @@ datenschutzfreundlich. Es gibt nichts, das regelmäßig aktualisiert werden müs
 ## Wo die Seite zu sehen ist
 
 - **Vorschau-Adresse** (automatisch, immer der aktuelle Stand aus diesem Projekt):
-  siehe rechts unter „About" bzw. im Reiter „Actions" → „Vorschau veroeffentlichen".
-  Die Vorschau ist für Suchmaschinen gesperrt (`noindex`).
+  **https://aoconsultinggmbh.github.io/puchmayr-website/**
+  Die Vorschau ist für Suchmaschinen gesperrt (`noindex`). Nach einer Änderung dauert es 1–2 Minuten.
 - **Echte Adresse:** `https://www.puchmayr.de` (nach dem Livegang, siehe `doku/livegang-anleitung.md`)
 
 ## So werden Änderungen gemacht

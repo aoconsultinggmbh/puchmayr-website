@@ -23,7 +23,7 @@ Seite) live schalten sollen. Ohne Vorwissen lesbar. Stand: 04.09.2026.*
 - **GitHub** ist der Ort, an dem das Original der Seite liegt. Jede Änderung wird
   protokolliert und kann rückgängig gemacht werden. **Hier arbeitet Claude.**
 - **Vorschau-Adresse:** GitHub zeigt den aktuellen Stand kostenlos unter einer
-  Adresse wie `https://FIRMENPROFIL.github.io/puchmayr-website/`. Für den Kunden
+  Adresse `https://aoconsultinggmbh.github.io/puchmayr-website/`. Für den Kunden
   zum Anschauen. Für Google gesperrt. Server in den USA, deshalb nicht für die
   echte Domain.
 - **Deutscher Hoster:** Der echte Server, auf dem `www.puchmayr.de` läuft.
@@ -243,7 +243,7 @@ kein Umzug):
 1. Änderung kommt vom Kunden (Mail, Anruf, Sprachmemo).
 2. Neue Claude-Sitzung öffnen, den **GitHub-Zugangsschlüssel** aus dem
    Passwort-Manager einfügen und die Änderung beschreiben, z. B.:
-   „Projekt github.com/FIRMENPROFIL/puchmayr-website. Hier der Schlüssel: github_pat_…
+   „Projekt github.com/aoconsultinggmbh/puchmayr-website. Hier der Schlüssel: github_pat_…
    Bitte auf der Startseite die Öffnungszeiten auf Mo–Do 7–17 Uhr, Fr 7–14 Uhr ändern."
 3. Claude ändert die Datei, lädt sie hoch, und die Automatik veröffentlicht.
    Vorschau nach 1–2 Minuten, echte Seite ebenfalls.
