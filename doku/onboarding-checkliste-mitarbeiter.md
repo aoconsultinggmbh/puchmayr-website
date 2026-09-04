@@ -64,7 +64,7 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
 - [ ] **C2 [M] Test-Änderung anfordern**, wörtlich:
       „Puchmayr: bitte in der Fußzeile den Text ‚Cookie-Einstellungen' in ‚Datenschutz-Einstellungen'
       ändern. Schlüssel: github_pat_…" (Schlüssel aus dem Passwort-Manager einfügen)
-- [ ] **C3 [M] Vorschau prüfen:** https://aoconsultinggmbh.github.io/puchmayr-website/
+- [ ] **C3 [M] Vorschau prüfen:** https://puchmayr.vorschau.ao-consult.de/
       Nach 1–2 Minuten muss die Änderung zu sehen sein.
 - [ ] **C4 [M] Änderung wieder zurücknehmen:** „Puchmayr: mach die letzte Änderung rückgängig."
 - [ ] **C5 [G] Ergebnis in GitHub anschauen:** github.com/aoconsultinggmbh/puchmayr-website →
@@ -81,8 +81,15 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
       Owner **aoconsultinggmbh** → Name `<kunde>-website` → Public → Create.
 - [ ] **D4 [M] Vorschau-Schalter umlegen**, wenn Claude es sagt: Projekt → Settings → Pages →
       Source: **GitHub Actions**.
-- [ ] **D5 [M] Vorschau-Link prüfen** und an den Kunden schicken.
-- [ ] **D6 [A/M] Livegang** nach `doku/livegang-anleitung.md` (Hoster, Formular, Datenschutz,
+- [ ] **D5 [M] Schöne Vorschau-Adresse eintragen** (gleiche Seite, weiter unten bei „Custom domain"):
+      `<kunde>.vorschau.ao-consult.de` eintragen → **Save**. Nach dem grünen Haken
+      „DNS check successful" den Haken bei **„Enforce HTTPS"** setzen (ist er noch ausgegraut:
+      in 10–20 Minuten noch einmal). Der Kundenname wird klein und ohne Umlaute geschrieben,
+      z. B. `puchmayr`, `praxis-mueller`. Kein DNS-Eintrag nötig – das ist einmalig für alle
+      erledigt (Stern-Eintrag `*.vorschau.ao-consult.de` bei Raidboxes).
+- [ ] **D6 [M] Vorschau-Link prüfen** (`https://<kunde>.vorschau.ao-consult.de`) und an den
+      Kunden schicken.
+- [ ] **D7 [A/M] Livegang** nach `doku/livegang-anleitung.md` (Hoster, Formular, Datenschutz,
       Domain). Hoster-Zugangsdaten in den Passwort-Manager-Ordner „Kundenwebseiten" und als
       Secrets ins Projekt.
 
@@ -98,8 +105,9 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
 ## F. Offen für später (Admir)
 
 - [ ] **F1** GitHub direkt mit Claude verbinden, damit der Schlüssel im Chat entfällt.
-- [ ] **F2** Vorschau-Adresse ohne „github": `<kunde>.vorschau.ao-consult.de` (ein DNS-Eintrag
-      bei ao-consult.de + Eintrag unter Settings → Pages → Custom domain).
+- [x] **F2** Vorschau-Adresse ohne „github": erledigt am 04.09.2026. Domain `ao-consult.de` ist im
+      Firmenprofil bestätigt (TXT-Eintrag), Stern-Eintrag `*.vorschau` → `aoconsultinggmbh.github.io`
+      liegt bei Raidboxes. Pro Projekt nur noch Schritt D5.
 - [ ] **F3** Aus puchmayr-website eine Vorlage machen (Settings → „Template repository"), damit
       neue Seiten mit „Use this template" starten.
 - [ ] **F4** Schutzregel für den Zweig `live` (nur Freigabe-Berechtigte dürfen dorthin).

@@ -22,10 +22,13 @@ Seite) live schalten sollen. Ohne Vorwissen lesbar. Stand: 04.09.2026.*
 
 - **GitHub** ist der Ort, an dem das Original der Seite liegt. Jede Änderung wird
   protokolliert und kann rückgängig gemacht werden. **Hier arbeitet Claude.**
-- **Vorschau-Adresse:** GitHub zeigt den aktuellen Stand kostenlos unter einer
-  Adresse `https://aoconsultinggmbh.github.io/puchmayr-website/`. Für den Kunden
-  zum Anschauen. Für Google gesperrt. Server in den USA, deshalb nicht für die
-  echte Domain.
+- **Vorschau-Adresse:** GitHub zeigt den aktuellen Stand kostenlos unter
+  `https://puchmayr.vorschau.ao-consult.de/`. Für den Kunden zum Anschauen. Für
+  Google gesperrt. Server in den USA, deshalb nicht für die echte Domain.
+  Jede Kundenseite bekommt so eine Adresse: `<kunde>.vorschau.ao-consult.de`. Der
+  DNS-Teil ist einmalig für alle erledigt (Stern-Eintrag bei Raidboxes, Domain im
+  Firmenprofil bestätigt). Pro Projekt nur: Settings → Pages → Custom domain →
+  `<kunde>.vorschau.ao-consult.de` → Save → Haken „Enforce HTTPS".
 - **Deutscher Hoster:** Der echte Server, auf dem `www.puchmayr.de` läuft.
   Server in Deutschland, Vertrag zur Auftragsverarbeitung (AV-Vertrag), ca. 5–10 € im Monat.
 

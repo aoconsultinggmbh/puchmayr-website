@@ -24,7 +24,8 @@ datenschutzfreundlich. Es gibt nichts, das regelmäßig aktualisiert werden müs
 ## Wo die Seite zu sehen ist
 
 - **Vorschau-Adresse** (automatisch, immer der aktuelle Stand aus diesem Projekt):
-  **https://aoconsultinggmbh.github.io/puchmayr-website/**
+  **https://puchmayr.vorschau.ao-consult.de/**
+  (die Adresse `aoconsultinggmbh.github.io/puchmayr-website` leitet dorthin weiter)
   Die Vorschau ist für Suchmaschinen gesperrt (`noindex`). Nach einer Änderung dauert es 1–2 Minuten.
 - **Echte Adresse:** `https://www.puchmayr.de` (nach dem Livegang, siehe `doku/livegang-anleitung.md`)
 
