@@ -1,9 +1,15 @@
 # ---------------------------------------------------------------------------
 # Livegang: Webseite auf den echten Server hochladen (deutscher Hoster)
 #
-# Was passiert hier: Bei jeder Änderung im Ordner "website/" lädt GitHub die
-# Dateien automatisch per verschlüsseltem FTP (FTPS) auf den Webserver.
+# Was passiert hier: Dieser Ablauf reagiert NUR auf den Zweig "live".
+# Änderungen landen zuerst auf "main" (= Vorschau). Erst wenn jemand die
+# Änderung freigibt ("main" nach "live" übernehmen), lädt GitHub die Dateien
+# per verschlüsseltem FTP (FTPS) auf den echten Webserver.
 # Nur Dateien, die sich geändert haben, werden übertragen.
+#
+# Freigabe durch Claude: "Gib die Änderungen bei Puchmayr frei" -> Claude
+# übernimmt main nach live. Von Hand: Reiter "Pull requests" -> New ->
+# base: live, compare: main -> Merge.
 #
 # Damit das läuft, müssen im Projekt drei "Secrets" hinterlegt sein
 # (GitHub → Settings → Secrets and variables → Actions → New repository secret):
@@ -20,7 +26,7 @@ name: Livegang (Upload zum Hoster)
 
 on:
   push:
-    branches: [main]
+    branches: [live]
     paths:
       - "website/**"
       - ".github/workflows/livegang.yml"

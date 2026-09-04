@@ -35,8 +35,14 @@ datenschutzfreundlich. Es gibt nichts, das regelmäßig aktualisiert werden müs
 2. Claude bekommt den Zugangsschlüssel zu diesem Projekt (liegt im Passwort-Manager
    von AO Consulting) und die Beschreibung der Änderung.
 3. Claude ändert die Dateien in `website/` und lädt sie hier hoch („Commit").
-4. Die Automatik veröffentlicht den neuen Stand innerhalb von 1–2 Minuten.
-   Erst auf der Vorschau-Adresse, nach dem Livegang auch auf dem echten Server.
+4. Die Automatik zeigt den neuen Stand innerhalb von 1–2 Minuten auf der
+   **Vorschau-Adresse**. Die echte Seite bleibt unverändert.
+5. Kunde oder wir prüfen die Vorschau. Wenn alles passt: **Freigabe**
+   („Gib die Änderungen bei Puchmayr frei"). Claude übernimmt den Stand in den
+   Zweig `live`, und die Automatik lädt ihn auf den echten Server.
+
+Zwei Stufen also: `main` = Vorschau, `live` = echte Seite. Nichts geht ohne
+Freigabe live.
 
 Jede Änderung ist im Reiter **„Commits"** protokolliert und kann jederzeit
 rückgängig gemacht werden.

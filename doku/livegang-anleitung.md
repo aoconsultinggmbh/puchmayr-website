@@ -119,7 +119,10 @@ Das ist einmalig 5 Minuten Arbeit. Danach passiert es von selbst.
 4. Reiter **„Actions"** → links **„Livegang (Upload zum Hoster)"** → rechts
    **„Run workflow"** → grüner Knopf. Nach 1–2 Minuten steht ein grüner Haken:
    Die Seite liegt auf dem Server.
-5. Ab jetzt: **Jede Änderung im Ordner `website/` landet automatisch auf dem Server.**
+5. Ab jetzt: **Jede freigegebene Änderung landet automatisch auf dem Server.**
+   Freigegeben heißt: der Stand wurde von `main` (Vorschau) nach `live` übernommen.
+   Das macht Claude auf Zuruf („Gib die Änderungen frei") oder ihr von Hand über
+   „Pull requests" → „New" → base `live`, compare `main` → „Merge".
 
 Wenn ein rotes Kreuz erscheint: auf den Lauf klicken, den Fehlertext kopieren und
 Claude geben. Häufigste Ursache: Tippfehler im Passwort oder falscher Ordner.
@@ -245,9 +248,11 @@ kein Umzug):
    Passwort-Manager einfügen und die Änderung beschreiben, z. B.:
    „Projekt github.com/aoconsultinggmbh/puchmayr-website. Hier der Schlüssel: github_pat_…
    Bitte auf der Startseite die Öffnungszeiten auf Mo–Do 7–17 Uhr, Fr 7–14 Uhr ändern."
-3. Claude ändert die Datei, lädt sie hoch, und die Automatik veröffentlicht.
-   Vorschau nach 1–2 Minuten, echte Seite ebenfalls.
-4. Kurz auf der echten Seite prüfen. Fertig.
+3. Claude ändert die Datei und lädt sie hoch. Nach 1–2 Minuten ist sie auf der
+   **Vorschau** zu sehen, die echte Seite bleibt noch unverändert.
+4. Vorschau prüfen (ggf. Link an den Kunden). Wenn alles passt: „Gib die
+   Änderungen frei" – Claude übernimmt den Stand nach `live`, die Automatik lädt
+   ihn auf den echten Server. Kurz auf der echten Seite prüfen. Fertig.
 
 Wenn etwas schiefgeht: In GitHub → „Commits" den letzten Eintrag ansehen. Claude kann
 jede Änderung mit einem Satz rückgängig machen („Mach den letzten Commit rückgängig").
