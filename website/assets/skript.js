@@ -98,9 +98,34 @@ if (form) {
       erstesFehlerfeld.scrollIntoView({ block: 'center', behavior: 'smooth' });
       return;
     }
-    form.classList.add('is-done');
-    form.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    // Versand an kontakt.php (auf dem Server). Auf der Vorschau (GitHub Pages) gibt es
+    // kein PHP; dort wird der Versand nur simuliert, damit die Danke-Ansicht testbar ist.
+    const vorschau = /github\.io$|vorschau\.ao-consult\.de$|^localhost$|^127\./.test(location.hostname);
+    const knopf = form.querySelector('button[type="submit"]');
+    const fertig = () => {
+      form.classList.add('is-done');
+      form.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    };
+    if (vorschau) { fertig(); return; }
+    if (knopf) { knopf.disabled = true; knopf.textContent = 'Wird gesendet …'; }
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(r => r.json().then(d => ({ ok: r.ok && d.ok, meldung: d.meldung })))
+      .catch(() => ({ ok: false, meldung: 'Der Versand hat leider nicht geklappt. Bitte rufen Sie uns an: 030 7963315.' }))
+      .then(d => {
+        if (d.ok) { fertig(); return; }
+        if (knopf) { knopf.disabled = false; knopf.textContent = 'Anfrage senden'; }
+        const msg = form.querySelector('textarea[name="nachricht"]') || form;
+        zeige(msg, d.meldung || 'Bitte prüfen Sie Ihre Angaben.');
+      });
   });
+
+  // Zeitstempel fuer den Spamschutz: wann wurde das Formular geladen?
+  const zeit = form.querySelector('input[name="t"]');
+  if (zeit) zeit.value = String(Math.floor(Date.now() / 1000));
 
   // Fehler verschwindet, sobald der Eintrag stimmt. Nicht schon beim ersten
   // Tastendruck, das nervt, sondern sobald das Feld gültig ist.

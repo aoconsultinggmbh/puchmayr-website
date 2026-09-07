@@ -873,7 +873,10 @@
 
     <div class="contact">
       <!-- Formular -->
-      <form class="form" id="kontaktformular" novalidate>
+      <form class="form" id="kontaktformular" method="post" action="kontakt.php" novalidate>
+        <!-- Spamschutz ohne externe Dienste: unsichtbares Feld und Zeitstempel (setzt skript.js) -->
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="t" value="">
         <div class="form__grid">
           <div class="field">
             <label for="f-name">Name <span>*</span></label>

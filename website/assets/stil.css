@@ -739,3 +739,6 @@ summary:focus-visible,[tabindex]:focus-visible{
   .preis{grid-template-columns:1fr}
   .preis__zahlen{grid-template-columns:1fr}
 }
+
+/* Honeypot: fuer Menschen unsichtbar, fuer Bots ein normales Feld */
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
