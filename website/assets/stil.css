@@ -14,7 +14,7 @@
   --mist-2:#F4F7FB;
   --steel:#A9B5CB;
   --text:#3D4759;
-  --muted:#6E7A8C;
+  --muted:#5F6B7D; /* vorher #6E7A8C, Kontrast 4.35:1; jetzt 5.4:1 (WCAG AA) */
   --white:#fff;
   --line:rgba(36,61,111,.12);
   --shadow:0 18px 50px -22px rgba(19,32,56,.35);
