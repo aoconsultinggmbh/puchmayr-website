@@ -21,7 +21,7 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
       Passwort, Zwei-Faktor mit dem Handy einrichten (GitHub fragt danach).
       Benutzernamen an Admir schicken (Vorschlag: `vorname-nachname-ao`).
 - [ ] **A5 [A] Ins Firmenprofil einladen.** github.com/orgs/aoconsultinggmbh/people →
-      „Invite member" → Benutzername → Rolle laut Entscheidung Admir (04.09.2026): **Owner** für Awan und Ovi, sonst **Member**.
+      „Invite member" → Benutzername (Muster `Nachname-AO`) → Rolle **Owner** (Entscheidung Admir).
 - [ ] **A6 [M] Einladung annehmen** (E-Mail von GitHub → „Join").
 - [ ] **A7 [A] Prüfen, dass Mitglieder Projekte anlegen dürfen:**
       github.com/organizations/aoconsultinggmbh/settings/member_privileges →
@@ -55,13 +55,15 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
 - [ ] **B2 [M] Lesen:** `README.md` im Projekt puchmayr-website (Aufbau, Regeln).
 - [ ] **B3 [M] Lesen:** `doku/livegang-anleitung.md` (die drei Bausteine, Vorschau/Freigabe/Live).
 - [ ] **B4 [G] Die fünf Regeln durchsprechen:**
-      1. Nichts geht ohne Freigabe live. `main` = Vorschau, `live` = echte Seite.
+      1. Nichts geht ohne bewusste Freigabe live. `main` = Vorschau, `live` = echte Seite.
+         Freigeben darf jeder mit Zugang, also: erst prüfen, dann freigeben.
       2. Keine externen Schriften, Skripte oder Einbettungen ohne Klick-Freigabe.
       3. Impressum und Datenschutz nur nach Rücksprache mit dem Kunden ändern.
       4. Zugangsdaten nur im Passwort-Manager und in GitHub-Secrets.
       5. Jede Änderung im Vorschau-Link prüfen, bevor sie an den Kunden geht.
-- [ ] **B5 [A] Festlegen, wer freigeben darf** (Änderungen von Vorschau auf live).
-      Vorschlag: zu Beginn nur Admir; nach den ersten Projekten auch der Mitarbeiter.
+- [x] **B5 [A] Festlegen, wer freigeben darf:** entschieden am 07.09.2026 – **jeder mit Zugang zur
+      Organisation darf freigeben** (Vorschau → live). Keine technische Sperre. Regel: Erst Vorschau
+      prüfen, dann bewusst freigeben.
 
 ## C. Erste Übung am echten Projekt (ca. 15 Minuten)
 
@@ -119,5 +121,7 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
       liegt bei Raidboxes. Pro Projekt nur noch Schritt D5.
 - [ ] **F3** Aus puchmayr-website eine Vorlage machen (Settings → „Template repository"), damit
       neue Seiten mit „Use this template" starten.
-- [ ] **F4** Schutzregel für den Zweig `live` (nur Freigabe-Berechtigte dürfen dorthin).
-- [ ] **F5** Zweiten Owner im Firmenprofil benennen (Vertretung).
+- [x] **F4** Schutzregel für den Zweig `live`: **bewusst verzichtet** (Entscheidung 07.09.2026, alle
+      mit Zugang dürfen freigeben). Bei Teamwachstum: GitHub-Team-Tarif + Organisations-Regel.
+- [x] **F5** Owner im Firmenprofil: Admir (Renz-AO), Awan (Tofik-AO), Ovi (folgt). Altes Konto
+      `aoconsulting-altkonto` entfernen, sobald Ovi drin ist.
