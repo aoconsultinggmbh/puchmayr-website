@@ -56,83 +56,96 @@ Diese Punkte stehen offen. Erst wenn sie erledigt sind, wird die Domain umgestel
 
 ---
 
-## 3. Hoster wählen und bestellen
+## 3. Unser Hoster: All-Inkl Server L v6
 
-**Anforderungen** (alle drei Vorschläge erfüllen sie):
+**Entscheidung 07.09.2026:** AO Consulting betreibt einen eigenen Managed Server bei All-Inkl
+(Server L v6, 99,95 € / Monat, bis 500 Kundenkonten). Grund: 197 aktive Kundenseiten bei
+Raidboxes zu je mindestens 6 € / Monat; jede umgezogene Seite spart Geld, ab ca. 17 Seiten ist
+der Server bezahlt.
 
-- Server in Deutschland, AV-Vertrag online abschließbar
-- FTP mit Verschlüsselung (FTPS oder SFTP), damit die Automatik hochladen kann
-- PHP (braucht das Kontaktformular)
-- SSL-Zertifikat inklusive (das Schloss im Browser), meist „Let's Encrypt"
+| Was | Wert | Wo abgelegt |
+|---|---|---|
+| Servername (technisch) | `dd57728.kasserver.com` | – |
+| MembersArea (Vertrag, Rechnungen) | all-inkl.com/members, Login = Kundennummer `884831` | Passwort-Manager „Kundenwebseiten" |
+| KAS Hauptkonto (Verwaltung) | kas.all-inkl.com, Login `w0220b7d` | Passwort-Manager „Kundenwebseiten" |
+| Monitoring | all-inkl.com/monitor, Login `dd57728.srv` | Passwort-Manager „Kundenwebseiten" |
+| Verträge, AGB, AV-Vertrag | PDFs | OneDrive `KI/Kundenwebseiten/00_AO-Hosting` |
 
-**Empfehlung A: All-Inkl** (all-inkl.com, Dresden)
-Paket **„PrivatPlus"** oder **„Business"**. Ca. 5–10 € pro Monat, oft die ersten
-Monate kostenlos. Sehr verbreitet, deutscher Telefonsupport. Domain-Umzug möglich.
-Verwaltung heißt dort **„KAS"** (Kunden-Administrations-System).
+**Pro Kunde ein eigenes Konto (Unteraccount) im KAS**, mit eigenem KAS-Login `w0…`, eigenem
+Webspace, eigenem FTP-Nutzer und eigenen Postfächern. Vorteile: sauber getrennt, bei
+Kundenaustritt übergebbar, ein verlorener FTP-Zugang betrifft nur eine Seite.
 
-**Empfehlung B: Hetzner Webhosting** (hetzner.com, Gunzenhausen)
-Paket **„Level 1"** oder **„Level 4"**. Ab ca. 2 € pro Monat. Sehr günstig und sehr
-solide. Verwaltung heißt dort **„konsoleH"**.
+Wichtig zu wissen: **All-Inkl liefert eine Seite erst aus, wenn ihre echte Domain im Konto
+eingetragen ist.** Es gibt keine technische Test-Adresse (die `w0….kasserver.com`-Adressen zeigen
+nur „503"). Zum Testen und für Kundenfreigaben dient deshalb immer die GitHub-Vorschau
+`<kunde>.vorschau.ao-consult.de`; die Seite auf dem Server prüft Claude technisch über die
+Server-IP, bevor die Domain umgestellt wird.
 
-**Auch möglich:** IONOS, Strato, netcup. Funktioniert gleich, nur die Menüs sehen anders aus.
+### Kundenkonto anlegen (KAS Hauptkonto → Accounts → Account anlegen)
 
-**Nicht nehmen:** Netlify, Vercel, Cloudflare Pages. Technisch bequem, aber
-US-Anbieter mit Servern weltweit. Für eine deutsche Arztpraxis-nahe Seite ist der
-deutsche Hoster die saubere Wahl.
+1. Reiter **„ohne Domain"** (die Domain kommt am Livegang-Tag dazu).
+2. Account-Beschreibung `<Kunde>`, Kontaktmailadresse `bahovic@ao-consult.de`, KAS-Passwort
+   generieren → Passwort-Manager „All-Inkl KAS – <Kunde>".
+3. Ressourcen (nur Obergrenzen, kostet nichts): Domains 2, Subdomains 2, Speicher 5000 MB,
+   Postfächer 5, Weiterleitungen 5, Datenbanken 1, FTP-Nutzer 2, Cronjobs 1.
+4. Software-Installation **Nein**, Logfiles **„IP wird komplett anonymisiert"**, löschen nach
+   **7** Tagen (das ist die Angabe für die Datenschutzerklärung), Statistik keine.
+5. Speichern → KAS zeigt den Login des neuen Kontos (`w0…`).
 
-**So bestellen (am Beispiel All-Inkl):**
+### FTP-Zugang für die Automatik (im Kundenkonto! Accounts → Login-Pfeil beim Konto)
 
-1. all-inkl.com → Webhosting → Paket wählen → bestellen. Als Auftraggeber
-   **AO Consulting GmbH** oder **den Kunden** eintragen (abstimmen, wer die Rechnung bekommt).
-   Wenn der Kunde später unabhängig sein soll, lieber auf den Kunden bestellen.
-2. Bei der Bestellung **keine neue Domain** bestellen. `puchmayr.de` existiert schon
-   und wird später umgezogen oder umgeleitet.
-3. Nach der Freischaltung (E-Mail) in **KAS** einloggen.
-4. **AV-Vertrag** abschließen: KAS → „Auftragsverarbeitung" → online unterschreiben.
-   PDF ablegen (Kundenordner).
-5. **FTP-Zugang anlegen:** KAS → „FTP" → neuen FTP-Benutzer anlegen, Zielordner
-   z. B. `/www.puchmayr.de/` oder den Ordner, der später der Domain zugeordnet wird.
-   Ein **sicheres Passwort** erzeugen lassen. Notieren:
-   - Server (z. B. `w01a2b3c.kasserver.com`)
-   - Benutzername
-   - Passwort
-   - Ordner
-
-Diese vier Angaben braucht Abschnitt 4. Sie gehören in den **Passwort-Manager**.
-
----
+FTP → FTP-Nutzer anlegen: Beschreibung `GitHub Automatik <Kunde>`, Verzeichnis `/`, Passwort
+generieren → Passwort-Manager „All-Inkl FTP – <Kunde> (GitHub Automatik)". KAS vergibt den
+Benutzernamen (z. B. `f018bc20`). Kontrolle: oben muss „Login: w0… (<Kunde>)" stehen, nicht das
+Hauptkonto.
 
 ## 4. Automatik einrichten: GitHub lädt zum Hoster hoch
 
-Das ist einmalig 5 Minuten Arbeit. Danach passiert es von selbst.
+Einmalig pro Kundenseite, ca. 5 Minuten.
 
-1. In GitHub das Projekt `puchmayr-website` öffnen.
-2. Oben Reiter **„Settings"** → links **„Secrets and variables"** → **„Actions"**.
-3. Knopf **„New repository secret"**. Vier Mal, jeweils Name und Wert eintragen:
+1. Im GitHub-Projekt: **Settings → Secrets and variables → Actions → New repository secret**, vier Mal:
 
    | Name | Wert |
    |---|---|
-   | `FTP_SERVER` | Server-Adresse vom Hoster, z. B. `w01a2b3c.kasserver.com` |
-   | `FTP_BENUTZER` | FTP-Benutzername |
-   | `FTP_PASSWORT` | FTP-Passwort |
-   | `FTP_ORDNER` | Zielordner, z. B. `/www.puchmayr.de/` (mit Schrägstrich vorn und hinten) |
+   | `FTP_SERVER` | `<KAS-Login des Kundenkontos>.kasserver.com`, z. B. `w0220b8a.kasserver.com` |
+   | `FTP_BENUTZER` | FTP-Benutzername aus KAS, z. B. `f018bc20` |
+   | `FTP_PASSWORT` | FTP-Passwort aus dem Passwort-Manager |
+   | `FTP_ORDNER` | `./` |
 
-   Die Namen müssen **genau so** geschrieben sein, Großbuchstaben inklusive.
+2. Freigabe: „Gib die Änderungen bei <Kunde> frei" (Claude übernimmt `main` nach `live`). Die
+   Automatik „Livegang (Upload zum Hoster)" lädt verschlüsselt (FTPS, Werkzeug lftp) hoch. Grüner
+   Haken = Dateien liegen auf dem Server. Kontrolle: KAS → FTP → WebFTP.
+3. Rotes Kreuz: Fehlertext lesen (Claude kann ihn über GitHub auslesen). Häufig: Passwort oder
+   Benutzername vertauscht.
 
-4. Reiter **„Actions"** → links **„Livegang (Upload zum Hoster)"** → rechts
-   **„Run workflow"** → grüner Knopf. Nach 1–2 Minuten steht ein grüner Haken:
-   Die Seite liegt auf dem Server.
-5. Ab jetzt: **Jede freigegebene Änderung landet automatisch auf dem Server.**
-   Freigegeben heißt: der Stand wurde von `main` (Vorschau) nach `live` übernommen.
-   Das macht Claude auf Zuruf („Gib die Änderungen frei") oder ihr von Hand über
-   „Pull requests" → „New" → base `live`, compare `main` → „Merge".
+**Hinweis zur Technik:** Das verbreitete Upload-Werkzeug „FTP-Deploy-Action" scheitert bei
+All-Inkl an der TLS-Datenverbindung (`ECONNRESET`). Deshalb nutzt die Automatik `lftp`.
 
-Wenn ein rotes Kreuz erscheint: auf den Lauf klicken, den Fehlertext kopieren und
-Claude geben. Häufigste Ursache: Tippfehler im Passwort oder falscher Ordner.
+## 4a. Standardablauf Livegang (Reihenfolge einhalten)
 
-**Testen, bevor die Domain umgestellt wird:** Der Hoster gibt eine Test-Adresse
-(All-Inkl: z. B. `http://w01a2b3c.kasserver.com/`, oder eine Subdomain, die man in
-KAS anlegt). Dort prüfen: Startseite, eine Leistungsseite, Impressum, Bilder, Schrift.
+**Bauen und abstimmen (Wochen):** GitHub-Projekt, Kunde prüft unter
+`<kunde>.vorschau.ao-consult.de`, Freigaben (Texte, Rechtstexte). Server und Domain spielen
+noch keine Rolle; die alte Seite bleibt online.
+
+**Vorab beim Kunden abfragen (spart am Livegang-Tag Stunden):**
+- Wer verwaltet die Domain, wer bekommt die Domain-Rechnung?
+- Gibt es ein eigenes All-Inkl-Konto (z. B. für E-Mail)? → Wenn ja, liegt die Domain dort
+  und kann in unserem Server-Konto **nicht** angelegt werden („bereits in einem anderen
+  KAS-Account angelegt"). Dann entweder: Seite läuft im Kundenkonto (Kunde legt uns FTP-Nutzer
+  an, Secrets zeigen dorthin) oder die Domain wird zu uns übertragen.
+- Wohin sollen Formular-Anfragen gehen? Welche Absenderadresse darf die Seite nutzen?
+
+**Livegang-Tag (ca. 1 Stunde):**
+1. KAS: Kundenkonto, FTP-Nutzer, Domain eintragen (Domain → Neue Domain anlegen → Name + Endung,
+   Webspace `/`, PHP aktuell). Das ist nach außen unsichtbar, solange DNS auf den alten Hoster zeigt.
+2. Secrets ins Projekt, Freigabe nach `live` → Dateien auf dem Server.
+3. Claude prüft die Seite über die Server-IP (als käme die Anfrage über die echte Domain):
+   Startseite, Unterseiten, `.htaccess`-Weiterleitungen, Kontaktformular (`kontakt.php`).
+4. Postfach/Weiterleitung für die Absenderadresse des Formulars anlegen (KAS → E-Mail).
+5. DNS umstellen: A-Record (und AAAA) der Domain auf die Server-IP, **MX nicht anfassen**.
+   Nach 1–24 h zeigt die Domain auf den Server. KAS → Domain → SSL: Let's Encrypt aktivieren.
+6. Echte Seite prüfen (https, Schloss, alle Unterseiten, Formular einmal echt testen).
+7. Eine Woche beobachten, dann alten Hoster kündigen.
 
 ---
 
@@ -146,7 +159,9 @@ Nachricht per E-Mail an `oliver.puchmayr@puchmayr.de` schickt. Vorteile: Daten
 bleiben auf dem deutschen Server, kein Drittanbieter, kein Google reCAPTCHA.
 Spamschutz über ein unsichtbares Feld („Honeypot") und eine Zeitprüfung.
 
-**Aufgabe für Claude, sobald der Hoster steht:**
+**Stand Puchmayr 07.09.2026:** `website/kontakt.php` ist gebaut und auf der Vorschau (Versand simuliert). Auf dem Server aktiv, sobald die Domain eingetragen ist. Absenderadresse `formular@puchmayr.de` muss dann als Postfach existieren.
+
+**Aufgabe für Claude bei anderen Kunden:**
 „Baue `website/kontakt.php` für das Kontaktformular. Versand an
 oliver.puchmayr@puchmayr.de, Absender `formular@puchmayr.de`, Honeypot und
 Zeitprüfung als Spamschutz, Bestätigungsseite in der CI. Passe `assets/skript.js`
@@ -268,7 +283,7 @@ jede Änderung mit einem Satz rückgängig machen („Mach den letzten Commit r�
 |---|---|
 | GitHub (Firmenprofil, öffentliches Projekt) | 0 € |
 | Vorschau-Adresse (GitHub Pages) | 0 € |
-| Deutscher Hoster | ca. 2–10 € / Monat |
+| All-Inkl Server L v6 (für alle Kundenseiten) | 99,95 € / Monat |
 | Domain puchmayr.de | ca. 10–20 € / Jahr (zahlt der Kunde vermutlich schon) |
 | Raidboxes (WordPress) | **entfällt** nach dem Umzug |
 

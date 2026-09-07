@@ -100,9 +100,10 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
       (Mobilfunk) testen. Für den Kunden funktioniert er sofort.
 - [ ] **D6 [M] Vorschau-Link prüfen** (`https://<kunde>.vorschau.ao-consult.de`) und an den
       Kunden schicken.
-- [ ] **D7 [A/M] Livegang** nach `doku/livegang-anleitung.md` (Hoster, Formular, Datenschutz,
-      Domain). Hoster-Zugangsdaten in den Passwort-Manager-Ordner „Kundenwebseiten" und als
-      Secrets ins Projekt.
+- [ ] **D7 [A/M] Livegang** nach `doku/livegang-anleitung.md`, Abschnitt 4a (Standardablauf):
+      vorab Domain/All-Inkl-Konto beim Kunden abfragen; am Livegang-Tag Kundenkonto im KAS,
+      FTP-Nutzer, Domain, Secrets, Freigabe, Prüfung über Server-IP, dann DNS. Zugangsdaten in
+      den Passwort-Manager-Ordner „Kundenwebseiten".
 
 ## E. Laufender Betrieb
 
