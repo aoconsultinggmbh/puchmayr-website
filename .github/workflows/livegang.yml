@@ -5,7 +5,7 @@
 # Änderungen landen zuerst auf "main" (= Vorschau). Erst wenn jemand die
 # Änderung freigibt ("main" nach "live" übernehmen), lädt GitHub die Dateien
 # per verschlüsseltem FTP (FTPS) auf den echten Webserver.
-# Nur Dateien, die sich geändert haben, werden übertragen.
+# Nur Dateien, die sich geändert haben, werden übertragen (Werkzeug: lftp).
 #
 # Freigabe durch Claude: "Gib die Änderungen bei Puchmayr frei" -> Claude
 # übernimmt main nach live. Von Hand: Reiter "Pull requests" -> New ->
@@ -59,16 +59,30 @@ jobs:
         if: steps.pruefen.outputs.bereit == 'ja'
         uses: actions/checkout@v4
 
-      - name: Auf den Server hochladen (FTPS)
+      - name: Upload-Werkzeug installieren (lftp)
         if: steps.pruefen.outputs.bereit == 'ja'
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_BENUTZER }}
-          password: ${{ secrets.FTP_PASSWORT }}
-          protocol: ftps
-          local-dir: ./website/
-          server-dir: ${{ secrets.FTP_ORDNER }}
-          exclude: |
-            **/.DS_Store
-            **/_alte-dateinamen/**
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Auf den Server hochladen (FTPS, verschluesselt)
+        if: steps.pruefen.outputs.bereit == 'ja'
+        env:
+          FTP_BENUTZER: ${{ secrets.FTP_BENUTZER }}
+          FTP_PASSWORT: ${{ secrets.FTP_PASSWORT }}
+          FTP_ORDNER: ${{ secrets.FTP_ORDNER }}
+        run: |
+          # lftp spiegelt den Ordner website/ auf den Server:
+          #  - nur geaenderte Dateien werden uebertragen
+          #  - Dateien, die im Projekt geloescht wurden, verschwinden auch auf dem Server
+          #  - Verbindung und Datenuebertragung sind TLS-verschluesselt
+          lftp -e "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate true;
+            set net:timeout 30;
+            set net:max-retries 3;
+            mirror --reverse --delete --verbose=1 \
+                   --exclude-glob .DS_Store --exclude-glob _alte-dateinamen/ \
+                   ./website/ \"${FTP_ORDNER:-./}\";
+            quit
+          " -u "$FTP_BENUTZER","$FTP_PASSWORT" "$FTP_SERVER"
+          echo "Upload abgeschlossen."
