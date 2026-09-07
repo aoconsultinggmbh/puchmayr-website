@@ -21,7 +21,7 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
       Passwort, Zwei-Faktor mit dem Handy einrichten (GitHub fragt danach).
       Benutzernamen an Admir schicken (Vorschlag: `vorname-nachname-ao`).
 - [ ] **A5 [A] Ins Firmenprofil einladen.** github.com/orgs/aoconsultinggmbh/people →
-      „Invite member" → Benutzername → Rolle **Member** (nicht Owner).
+      „Invite member" → Benutzername → Rolle laut Entscheidung Admir (04.09.2026): **Owner** für Awan und Ovi, sonst **Member**.
 - [ ] **A6 [M] Einladung annehmen** (E-Mail von GitHub → „Join").
 - [ ] **A7 [A] Prüfen, dass Mitglieder Projekte anlegen dürfen:**
       github.com/organizations/aoconsultinggmbh/settings/member_privileges →
@@ -29,7 +29,8 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
 - [ ] **A8 [M] Eigenen Zugangsschlüssel für Claude erstellen.** Wichtig zum Verständnis: Der
       Schlüssel gehört zur **Person**, nicht zu einem Projekt. Jeder Mitarbeiter hat genau einen,
       der für alle Kundenseiten gilt. Erstellt wird er im **eigenen** GitHub-Konto:
-      github.com/settings/personal-access-tokens → Generate new token:
+      github.com/settings/personal-access-tokens → Generate new token
+      (**Resource owner: aoconsultinggmbh**, die Organisation, nicht das eigene Konto!):
       - Token name: `<Vorname> – Claude – Kundenwebseiten`
       - Expiration: 1 Jahr (GitHub erinnert eine Woche vorher per Mail)
       - Resource owner: **aoconsultinggmbh** (steht das Firmenprofil nicht in der Liste → Admir
