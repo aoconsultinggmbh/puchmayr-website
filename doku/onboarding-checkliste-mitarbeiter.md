@@ -120,6 +120,23 @@ Legende: **[A]** macht Admir · **[M]** macht der Mitarbeiter · **[G]** machen 
 - [x] **F2** Vorschau-Adresse ohne „github": erledigt am 04.09.2026. Domain `ao-consult.de` ist im
       Firmenprofil bestätigt (TXT-Eintrag), Stern-Eintrag `*.vorschau` → `aoconsultinggmbh.github.io`
       liegt bei Raidboxes. Pro Projekt nur noch Schritt D5.
+
+> **Wichtig: die zwei DNS-Einträge bei Raidboxes nie löschen.**
+> 1. `*.vorschau` → `aoconsultinggmbh.github.io` (CNAME) — dadurch landen alle Vorschau-Adressen
+>    überhaupt bei GitHub.
+> 2. `_gh-aoconsultinggmbh-o` (TXT) — damit bestätigt GitHub, dass uns `ao-consult.de` gehört.
+>
+> GitHub prüft den TXT-Eintrag von Zeit zu Zeit nach. Fehlt er, kommt die Mail
+> „We can no longer verify your ownership of ao-consult.de" mit 7 Tagen Frist. **Die Vorschau-Links
+> laufen dann zwar weiter** (dafür sorgt Eintrag 1), aber der Schutz ist offen: Bestätigt jemand
+> anderes die Domain bei GitHub, fallen unsere Seiten auf `github.io`-Adressen zurück, und alle
+> Links, die bei Kunden liegen, gehen ins Leere.
+>
+> **Reparatur:** github.com → `aoconsultinggmbh` → Settings → Verified and approved domains →
+> Add a domain → `ao-consult.de`. GitHub zeigt Name und Wert des neuen TXT-Eintrags. Den bei
+> Raidboxes anlegen (Art TXT, TTL 3600), 10–20 Minuten warten, dann auf GitHub **Verify** klicken.
+> Zu frühes Klicken meldet nur „nicht gefunden".
+> Passiert am 16.09.2026, in 20 Minuten behoben.
 - [ ] **F3** Aus puchmayr-website eine Vorlage machen (Settings → „Template repository"), damit
       neue Seiten mit „Use this template" starten.
 - [x] **F4** Schutzregel für den Zweig `live`: **bewusst verzichtet** (Entscheidung 07.09.2026, alle
