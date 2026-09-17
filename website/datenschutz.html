@@ -237,6 +237,66 @@
          Links nicht anklicken. Erst nach dem Klick gelten die Datenschutzbestimmungen des
          jeweiligen Anbieters.</p>
 
+      <!-- ====================================================================
+           BEIM LIVEGANG AKTIVIEREN — zusammen mit den Kennungen in
+           ao-konfiguration.js. Solange dort nichts eingetragen ist, wird auch
+           nichts geladen, und der Text unten waere falsch.
+
+           REIHENFOLGE AM LIVEGANG-TAG:
+           1. Kunde hat eigenes Google-Konto und Auftragsverarbeitung mit Google.
+           2. Messkennung (G-...) in ao-konfiguration.js eintragen.
+           3. Diesen Block hier auskommentieren, den bisherigen Absatz zum
+              Thema Tracking darueber loeschen, Nummerierung anpassen.
+           4. Auf der Seite pruefen: Banner erscheint, ohne Zustimmung geht kein
+              Aufruf an Google hinaus.
+           Nur die Abschnitte stehen lassen, die wirklich eingeschaltet sind.
+      =====================================================================
+
+      <h2>Einwilligung, Statistik und Marketing</h2>
+      <p>Beim ersten Besuch fragen wir Sie, ob wir ueber die technisch notwendigen Funktionen
+      hinaus etwas laden duerfen. <strong>Ohne Ihre Zustimmung wird kein Dienst von Google,
+      Meta oder einem anderen Anbieter geladen</strong> und keine Messung durchgefuehrt. Ihre
+      Entscheidung speichern wir im lokalen Speicher Ihres Browsers, nicht in einem Cookie;
+      sie gilt zwoelf Monate. Sie koennen sie jederzeit ueber &bdquo;Cookie-Einstellungen&ldquo;
+      in der Fusszeile aendern oder widerrufen &ndash; mit demselben Aufwand wie die Zustimmung.
+      Eine Ablehnung hat keine Nachteile fuer die Nutzung dieser Seite.</p>
+
+      <h3>Google Analytics 4</h3>
+      <p>Mit Ihrer Zustimmung setzen wir Google Analytics 4 ein, einen Dienst der Google Ireland
+      Limited, Gordon House, Barrow Street, Dublin 4, Irland. Wir erfahren dadurch, welche Seiten
+      gelesen werden, woher Besucher kommen und mit welchem Geraet. Dabei werden Cookies und
+      Kennungen in Ihrem Browser gesetzt. Ihre IP-Adresse wird gekuerzt, bevor sie gespeichert
+      wird, und geraeteuebergreifende Werbemerkmale sind abgeschaltet. Eine Verarbeitung in den
+      USA ist moeglich; Google beruft sich darauf, nach dem EU-US Data Privacy Framework
+      zertifiziert zu sein. Die Daten werden nach laengstens 14 Monaten geloescht.
+      Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und
+      &sect; 25 Abs. 1 TDDDG. Naeheres bei Google:
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+      <h3>Google Search Console</h3>
+      <p>Wir nutzen die Google Search Console, um zu sehen, mit welchen Suchbegriffen diese Seite
+      in der Google-Suche erscheint. Dabei wird nichts in Ihrem Browser gespeichert und es werden
+      keine Daten einzelner Besucher verarbeitet; wir erhalten nur zusammengefasste Auswertungen.
+      Eine Einwilligung ist dafuer nicht erforderlich.</p>
+
+      <h3>Meta-Pixel</h3>
+      <p>Mit Ihrer Zustimmung setzen wir den Meta-Pixel ein, einen Dienst der Meta Platforms
+      Ireland Ltd., Merrion Road, Dublin 4, Irland. Er zeigt uns, ob ein Besuch aus einer Anzeige
+      bei Facebook oder Instagram kam und ob daraus eine Anfrage geworden ist. Dabei werden
+      Cookies und Kennungen gesetzt und Daten an Meta uebermittelt; eine Verarbeitung in den USA
+      ist moeglich. Die Speicherdauer betraegt bis zu 24 Monate. Rechtsgrundlage ist Ihre
+      Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und &sect; 25 Abs. 1 TDDDG. Meta und wir sind
+      fuer die Erhebung gemeinsam Verantwortliche im Sinne von Art. 26 DSGVO; die Einzelheiten
+      regelt die Zusatzvereinbarung von Meta. Naeheres bei Meta:
+      <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a>.</p>
+
+      <h3>Google Ads</h3>
+      <p>Mit Ihrer Zustimmung messen wir ueber Google Ads, welche Anzeige zu einer Anfrage
+      gefuehrt hat. Anbieter, Rechtsgrundlage und Hinweise zur Uebermittlung in die USA
+      entsprechen den Angaben zu Google Analytics.</p>
+
+      ================== ENDE DES VORBEREITETEN BLOCKS ================== -->
+
       <h2>11. Keine Analyse und keine Werbung</h2>
       <p>Diese Website verwendet keine Werkzeuge zur Reichweitenmessung, kein Tracking und
          keine Werbenetzwerke. Auf unserer Karriereseite werden dagegen Analyse- und
@@ -307,7 +367,9 @@
   </div>
 </footer>
 
+<script src="assets/ao-konfiguration.js"></script>
 <script src="assets/einwilligung.js" defer></script>
+<script src="assets/messung.js" defer></script>
 <script src="assets/skript.js" defer></script>
 <script src="assets/barrierefreiheit.js" defer></script>
 </body>

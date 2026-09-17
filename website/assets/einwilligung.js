@@ -389,7 +389,13 @@
   // ------------------------------------------------------------------------
   // Start
   // ------------------------------------------------------------------------
+  // Gibt es keine einzige freiwillige Kategorie, waere ein Banner sinnlos und
+  // nur laestig: dann wird nichts geladen, was einer Zustimmung beduerfte.
+  // KEINE_FREIWILLIGE
+  var hatFreiwillige = KAT.some(function (k) { return !k.pflicht; });
+
   function start() {
+    if (!hatFreiwillige) { melden(); return; }
     // Auslöser in der Fußzeile verkabeln
     document.querySelectorAll('[data-einwilligung-oeffnen]').forEach(function (b) {
       b.addEventListener('click', function (e) { e.preventDefault(); oeffne('details'); });
