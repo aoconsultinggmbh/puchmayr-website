@@ -179,8 +179,10 @@ header.solid .nav__burger span{background:var(--navy)}
 .rating{display:flex;align-items:center;justify-content:center;gap:13px}
 .rating__g{
   width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;
-  font-weight:800;font-size:1.05rem;color:#4285F4;flex:none;
+  flex:none;box-shadow:0 2px 8px -2px rgba(0,0,0,.35);
 }
+/* Google-Zeichen in den Originalfarben, wie in den anderen AO-Projekten */
+.rating__g svg{width:19px;height:19px;display:block}
 .stars{display:flex;gap:2px}
 .stars svg{width:15px;height:15px;color:#FBBC05}
 .rating__txt{font-size:.83rem;color:rgba(255,255,255,.82);line-height:1.35}
