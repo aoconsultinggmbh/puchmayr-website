@@ -6,7 +6,7 @@
      <script src="assets/einwilligung.js" defer></script>
    Die Oberfläche baut das Skript selbst, das HTML bleibt unberührt.
 
-   Farben kommen aus der Seite, falls --navy und --coral definiert sind.
+   Farben kommen aus der Seite, falls --navy und --blue definiert sind.
    Sonst greifen die Ersatzwerte hier.
    ============================================================================ */
 
@@ -14,13 +14,13 @@
   --ein-navy: var(--navy, #243D6F);
   --ein-navy-tief: var(--navy-deep, #1A2C4F);
   --ein-navy-tinte: var(--navy-ink, #132038);
-  --ein-coral: var(--coral, #FD6E5D);
-  --ein-coral-dunkel: var(--coral-dark, #E85947);
+  --ein-coral: var(--blue, #3E63A8);   /* Akzent: Blau statt Orange, Wunsch des Kunden */
+  --ein-coral-dunkel: var(--navy, #243D6F);
   --ein-text: #3D4759;
   --ein-grau: #6E7A8C;
   --ein-linie: rgba(36,61,111,.14);
   --ein-hell: #F4F7FB;
-  --ein-radius: 14px;
+  --ein-radius: 6px;
 }
 
 /* ---------- Abdunklung ---------- */
@@ -90,7 +90,7 @@
 .ein-knopf:focus-visible{outline:3px solid var(--ein-navy);outline-offset:3px}
 .ein-knopf svg{width:17px;height:17px;flex:none}
 
-/* Empfehlung: gefüllt in Coral, mit Haken und Rahmenring.
+/* Empfehlung: gefüllt in Blau, mit Haken und Rahmenring.
    Ablehnen steht daneben, gleich groß und gleich gut erreichbar. */
 .ein-knopf--alle{
   background:var(--ein-coral);color:#fff;
@@ -150,7 +150,7 @@
 .ein-schalter[aria-checked="true"]::after{transform:translateX(22px)}
 .ein-schalter:focus-visible{outline:3px solid var(--ein-navy);outline-offset:3px}
 /* Pflichtkategorie: klar sichtbar an, aber nicht umschaltbar.
-   Navy statt Coral, damit "gesperrt" und "vom Nutzer erlaubt" unterscheidbar sind. */
+   Dunkles Navy statt Akzentblau, damit "gesperrt" und "vom Nutzer erlaubt" unterscheidbar sind. */
 .ein-schalter[disabled]{background:var(--ein-navy);opacity:1;cursor:default}
 .ein-schalter[disabled]::after{transform:translateX(22px)}
 .ein-immer{

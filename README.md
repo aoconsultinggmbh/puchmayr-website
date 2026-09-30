@@ -16,7 +16,7 @@ datenschutzfreundlich. Es gibt nichts, das regelmäßig aktualisiert werden müs
 | `website/*.html` | Die weiteren Seiten (Leistungen, Impressum, Datenschutz, ...) |
 | `website/assets/` | Design (`stil.css`), Skripte, Einwilligungsbanner, Barrierefreiheits-Widget |
 | `website/img/` | Alle Bilder |
-| `website/fonts/` | Die Schrift Plus Jakarta Sans (lokal, keine Verbindung zu Google) |
+| `website/fonts/` | Die Schrift Open Sans (lokal, keine Verbindung zu Google) |
 | `doku/` | Anleitungen und die ausführliche Dokumentation des Entwurfs |
 | `.github/workflows/` | Die Automatik: veröffentlicht die Seite bei jeder Änderung von selbst |
 | `vorschau.command` | Doppelklick auf dem Mac: zeigt die Seite lokal im Browser |

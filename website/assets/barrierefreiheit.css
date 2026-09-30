@@ -6,14 +6,14 @@
      <script src="assets/barrierefreiheit.js" defer></script>
    Die Bedienoberfläche baut das Skript selbst, das HTML bleibt unberührt.
 
-   Farben werden aus der Seite übernommen, falls --navy und --coral
+   Farben werden aus der Seite übernommen, falls --navy und --blue
    definiert sind. Sonst greifen die Ersatzwerte hier.
    ============================================================================ */
 
 :root{
   --bf-navy: var(--navy, #243D6F);
   --bf-navy-dark: var(--navy-ink, #132038);
-  --bf-akzent: var(--coral, #FD6E5D);
+  --bf-akzent: var(--blue, #3E63A8);
   --bf-linie: rgba(36,61,111,.14);
   --bf-text: #3D4759;
   --bf-grau: #6E7A8C;

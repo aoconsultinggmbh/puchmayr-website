@@ -2,6 +2,31 @@
 
 Struktur nach dem Vorbild **germancrowns.com**, Farben und Inhalte von **Puchmayr**.
 
+## Fassung 2 (30.09.2026): Erscheinungsbild der alten Seite
+
+Die drei Entscheider bevorzugen das Design der bisherigen Webseite puchmayr.de.
+Gewünscht war eine optische Überarbeitung im „alten Universum" statt eines neuen
+Designs, insbesondere ohne Orange-Töne. Die Unterseitenstruktur je Leistung bleibt
+aus Gründen der Auffindbarkeit erhalten (mit dem Kunden so abgestimmt).
+
+Was sich geändert hat:
+
+- **Schrift:** Open Sans (die Schrift der alten Seite) statt Plus Jakarta Sans,
+  vier Schnitte (400, 500, 600, 700), weiter lokal ausgeliefert.
+- **Farben:** nur noch Blau, Grau und Weiß. Das Coral `#FD6E5D` ist überall entfallen,
+  Akzent ist jetzt `--blue #3E63A8`, dunkle Flächen und Fußzeile tragen das Navy
+  `#243D6F` der alten Fußzeile. Auch Einwilligungsbanner und Barrierefreiheits-Widget
+  nutzen Blau.
+- **Kopfbereich:** immer weiß, Logo in Originalfarben, Menüpunkte in Grau (Regular),
+  kleiner blauer Knopf in Versalien, wie auf der alten Seite.
+- **Hero und Unterseiten-Hero:** blau eingefärbtes Foto mit den hellen Ovalen der
+  alten Seite (als CSS-Verläufe, kein Bild), Überschrift in Schnitt 500 und mittig.
+- **Überschriften** in Schnitt 500 statt 800, ohne enge Laufweite. Der orange
+  Marker-Effekt hinter einzelnen Wörtern ist entfallen (`.mark` ist jetzt neutral).
+- **Knöpfe:** eckiger (3 px), Versalien mit Laufweite, dunkelblau.
+- **Sektionen:** gerade Kanten statt Schrägkanten, runde Icon-Kreise, Eckenradius 6 px.
+- Struktur, Texte, Bilder, Formular, Banner und Unterseiten sind unverändert.
+
 ## Öffnen
 
 **Empfohlen: `vorschau.command` doppelklicken.** Es startet einen kleinen Webserver in
@@ -44,7 +69,7 @@ Beides tritt auf der Livedomain nicht auf.
 | `assets/einwilligung.css` | Einwilligungsbanner, Oberfläche, wiederverwendbar |
 | `assets/einwilligung.js` | Einwilligungsbanner, Logik und Schnittstelle |
 | `sitemap.xml`, `robots.txt` | Vorlagen mit 10 URLs, Domain vor dem Livegang ersetzen |
-| `fonts/` | Plus Jakarta Sans als WOFF2, fünf Schnitte, zusammen 136 KB |
+| `fonts/` | Open Sans als WOFF2, vier Schnitte |
 | `img/` | 17 Motive je als WebP und JPG, Logo als PNG und WebP, Favicon als SVG und PNG |
 
 CSS und JS liegen bewusst außerhalb der HTML-Dateien. Eine Änderung am Design
@@ -154,26 +179,30 @@ Copy-and-paste-Fehler, der vor dem Livegang korrigiert werden sollte.
 
 ## Farben (Puchmayr-CI, aus der Staging-Seite ausgelesen)
 
-- Navy `#243D6F` für Überschriften, Buttons, Icons
-- Navy dunkel `#132038` für dunkle Sektionen und Footer
-- Coral `#FD6E5D` für Akzent, CTA, Marker-Highlight
-- Nebelblau `#E8EEF6` und `#F4F7FB` für den Sektionswechsel
+Stand Fassung 2:
+
+- Navy `#243D6F` für Überschriften, Knöpfe, Icons, dunkle Sektionen und Fußzeile
+- Blau `#3E63A8` für Hover, Kicker, Pflichtstern, kleine Akzente
+- Hellblau-Grau `#CFD5E3` für Rahmen beim Hover
+- Grau `#E9ECF1` und `#F4F5F8` für den Sektionswechsel
+- Text `#4A5160`, gedämpft `#6B7280`
+- Kein Orange und kein Coral mehr (Fassung 1 hatte `#FD6E5D`)
 
 ## Schriften
 
-**Plus Jakarta Sans**, fünf Schnitte (400 bis 800), **lokal ausgeliefert** aus `fonts/`.
+**Open Sans**, vier Schnitte (400, 500, 600, 700), **lokal ausgeliefert** aus `fonts/`.
+Das ist die Schrift der bisherigen Webseite (Fassung 1 nutzte Plus Jakarta Sans).
 Es geht keine Anfrage an Google. Das war notwendig, weil die Datenschutzerklärung des
 Kunden genau das aussagt, und es ist zugleich schneller: eine fremde Domain, ein
 DNS-Lookup und ein TLS-Handshake fallen weg.
 
 Eingebunden über `assets/schrift.css` mit `font-display:swap` und getrennten Dateien für
 `latin` und `latin-ext`, sodass der Browser nur lädt, was die Seite wirklich braucht.
-Die beiden häufigsten Schnitte (400 und 800) werden per `preload` vorgezogen.
-Alle zehn WOFF2-Dateien zusammen: **136 KB**.
+Die beiden häufigsten Schnitte (400 und 600) werden per `preload` vorgezogen.
 
-Quelle der Dateien ist Fontsource (`@fontsource/plus-jakarta-sans` 5.3.0), die Schrift
+Quelle der Dateien ist Fontsource (`@fontsource/open-sans`), die Schrift
 steht unter der SIL Open Font License 1.1. Der Lizenztext liegt in
-`fonts/LICENSE-Plus-Jakarta-Sans.txt` und muss beim Livegang mitkopiert werden.
+`fonts/LICENSE-Open-Sans.txt` und muss beim Livegang mitkopiert werden.
 
 Zum CORS-Hinweis beim lokalen Öffnen siehe Abschnitt „Öffnen" oben.
 
@@ -255,9 +284,9 @@ AO Consulting gedacht und über ein Konfigurationsobjekt anpassbar.
 ### Was der Nutzer sieht
 
 Beim ersten Aufruf eine Karte über der abgedunkelten Seite, mit einem Farbstreifen in
-Coral und Navy oben. Darin zwei Knöpfe:
+Blau und Navy oben. Darin zwei Knöpfe:
 
-- **Alles erlauben**, gefüllt in Coral, mit Haken und Leuchtring, darüber die Zeile
+- **Alles erlauben**, gefüllt in Blau, mit Haken und Leuchtring, darüber die Zeile
   „Unsere Empfehlung". Das ist der optisch hervorgehobene Weg.
 - **Nur notwendige**, direkt daneben, **gleich groß, gleiche Zeile, gleich leicht zu
   treffen** (gemessen 282 × 50 px auf dem Desktop, gleiche Breite auf dem Handy).
@@ -363,7 +392,7 @@ zu ergänzen und die Dateien mitzunehmen:
 ```
 
 Das Widget baut Symbol und Panel selbst, das übrige HTML bleibt unberührt. Die Farben
-übernimmt es aus `--navy` und `--coral`, falls vorhanden.
+übernimmt es aus `--navy` und `--blue`, falls vorhanden.
 
 **Für WordPress:** Auf ao-consult.de läuft dafür das Plugin
 *Divi Modules Accessibility Bundle*. Dasselbe Plugin ist auf der Puchmayr-Staging-Seite
@@ -377,7 +406,7 @@ zusätzlich umgesetzt:
 
 - **Sprunglinks** zu Inhalt und Kontakt, sichtbar sobald sie den Fokus haben
 - **Fokusringe** auf allen bedienbaren Elementen, auf dunklem Grund in Weiß, auf hellem
-  in Coral. Bei reinem Mausklick erscheinen sie nicht, nur bei Tastaturbedienung.
+  in Blau. Bei reinem Mausklick erscheinen sie nicht, nur bei Tastaturbedienung.
 - **`aria-expanded` und `aria-controls`** am Burger-Menü, das jetzt auch mit Escape schließt
 - **`prefers-reduced-motion`** wird respektiert, wer im Betriebssystem weniger Bewegung
   einstellt, bekommt keine Übergänge
