@@ -405,9 +405,8 @@
       "@id": "https://www.puchmayr.de/#video-inklusionspreis",
       "name": "Inklusionspreis Berlin 2024, Puchmayr Dentaltechnik GmbH",
       "description": "Beitrag des Landesamts für Gesundheit und Soziales Berlin zur Verleihung des Berliner Inklusionspreises 2024 an die Puchmayr Dentaltechnik GmbH.",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/io-R9N6DPgo",
-      "url": "https://www.youtube.com/watch?v=io-R9N6DPgo",
-      "thumbnailUrl": "https://i.ytimg.com/vi/io-R9N6DPgo/maxresdefault.jpg",
+      "contentUrl": "https://www.puchmayr.de/video/berliner-inklusionspreis-2024-puchmayr-dentaltechnik.mp4",
+      "thumbnailUrl": "https://www.puchmayr.de/img/team-puchmayr-dentaltechnik-berlin-steglitz.jpg",
       "uploadDate": "2024-11-20",
       "about": {
         "@id": "https://www.puchmayr.de/#organisation"
@@ -440,6 +439,7 @@
       <li><a href="#fertigung">Digitale Fertigung</a></li>
       <li><a href="#ablauf">Ablauf</a></li>
       <li><a href="#service">Service</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="https://puchmayr-karriere.de/" target="_blank" rel="noopener">Karriere</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
@@ -698,16 +698,20 @@
 <!-- ============ AUSZEICHNUNG: BERLINER INKLUSIONSPREIS 2024 ============
      Belegt durch die Pressemitteilung des Landesamts für Gesundheit und
      Soziales Berlin. Alle Zahlen stammen aus dieser Quelle.
-     Das YouTube-Video lädt erst nach Klick, vorher geht keine Anfrage
-     an Google. ======================================================= -->
+     Das Video liegt auf dem eigenen Server (wie auf der alten Seite),
+     es geht keine Anfrage an YouTube oder Google. ==================== -->
 <section class="sec sec--mist" id="auszeichnung" aria-labelledby="t-preis">
   <div class="wrap preis">
-    <div class="video" id="preisvideo" data-video="io-R9N6DPgo">
-      <picture><source srcset="img/team-puchmayr-dentaltechnik-berlin-steglitz.webp" type="image/webp"><img src="img/team-puchmayr-dentaltechnik-berlin-steglitz.jpg" alt="Das Team von Puchmayr Dentaltechnik in Berlin-Steglitz" width="1200" height="1800" loading="lazy" decoding="async"></picture>
-      <button type="button" class="video__start" aria-label="Video zum Berliner Inklusionspreis 2024 auf YouTube abspielen">
-        <span class="video__play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="video__hinweis">Video abspielen. Erst mit dem Klick wird eine Verbindung zu YouTube aufgebaut und Ihre IP-Adresse an Google übertragen.</span>
-      </button>
+    <!-- Video liegt auf dem eigenen Server. Keine Verbindung zu YouTube oder anderen Dritten,
+         deshalb braucht die Seite kein Einwilligungsfenster. Untertitel sind im Video eingebrannt. -->
+    <div class="video" id="preisvideo">
+      <video controls preload="none" playsinline
+             poster="img/team-puchmayr-dentaltechnik-berlin-steglitz.jpg"
+             aria-label="Video zur Verleihung des Berliner Inklusionspreises 2024 an Puchmayr Dentaltechnik, mit Untertiteln">
+        <source src="video/berliner-inklusionspreis-2024-puchmayr-dentaltechnik.mp4" type="video/mp4">
+        Ihr Browser kann dieses Video nicht abspielen.
+        <a href="video/berliner-inklusionspreis-2024-puchmayr-dentaltechnik.mp4">Video herunterladen</a>.
+      </video>
     </div>
 
     <div>
@@ -734,10 +738,6 @@
 
       <div class="preis__quelle">
         <a class="btn btn--primary" href="https://www.berlin.de/lageso/service/pressemitteilungen/2024/pressemitteilung.1504694.php" target="_blank" rel="noopener">Pressemitteilung des Landes Berlin</a>
-        <a class="quellenlink" href="https://www.youtube.com/watch?v=io-R9N6DPgo" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C16.1 4.1 12 4.1 12 4.1h0s-4.1 0-6.7.2c-.4 0-1.3 0-2.1.9-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.5v1.6c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.2.9 1.6.1 6.6.2 6.6.2s4.1 0 6.7-.2c.4 0 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3ZM9.9 14V8.4l5.3 2.8L9.9 14Z"/></svg>
-          Video direkt auf YouTube ansehen
-        </a>
       </div>
     </div>
   </div>
@@ -957,27 +957,31 @@
 </section>
 
 <!-- ============ ANFAHRTSKARTE ============ -->
-<section class="mapband" aria-label="Anfahrt zu Puchmayr Dentaltechnik">
-  <!-- Google Maps lädt erst nach Klick. Vorher geht keine Anfrage an Google.
-       Damit deckt sich die Seite mit der Datenschutzerklärung. -->
-  <div class="karte" data-karte="https://www.google.com/maps?q=Kelchstr.+23,+12169+Berlin&amp;z=16&amp;hl=de&amp;output=embed">
-    <div class="karte__platz">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-      <p class="karte__adresse">Anfahrt auf der Karte ansehen</p>
-      <button type="button" class="btn btn--navy karte__start">Karte laden</button>
-      <p class="karte__hinweis">Erst mit dem Klick wird eine Verbindung zu Google Maps aufgebaut und Ihre IP-Adresse an Google übertragen.</p>
-    </div>
+<!-- ============ NOCH FRAGEN? (Element der bisherigen Webseite) ============
+     Blau eingefärbtes Foto mit den hellen Ovalen, vier runde Symbole.
+     Ersetzt die frühere Google-Maps-Karte: der Routenlink öffnet Google Maps
+     erst beim Klick in einem neuen Fenster, vorher geht keine Anfrage an Google. -->
+<section class="fragen" aria-labelledby="t-fragen">
+  <div class="fragen__bg" aria-hidden="true">
+    <picture><source srcset="img/puchmayr-dentaltechnik-empfang-berlin-steglitz.webp" type="image/webp"><img src="img/puchmayr-dentaltechnik-empfang-berlin-steglitz.jpg" alt="" width="1800" height="1200" loading="lazy" decoding="async"></picture>
   </div>
-  <div class="mapcard">
-    <div class="mapcard__inner">
-      <div class="mapcard__box">
-        <h3>So finden Sie uns</h3>
-        <p>Kelchstr. 23, 12169 Berlin-Steglitz.<br>
-           Parkplätze finden Sie direkt in der Straße.</p>
-        <a class="btn btn--navy" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/dir/?api=1&amp;destination=Kelchstr.+23%2C+12169+Berlin">Route planen</a>
-      </div>
-    </div>
+  <div class="wrap">
+    <h2 id="t-fragen">Noch Fragen?</h2>
+    <p class="fragen__lead">Gerne stehen wir Ihnen telefonisch oder persönlich zur Verfügung, bei einem Termin in Ihrer Praxis oder bei uns im Labor in Berlin-Steglitz.</p>
+    <ul class="fragen__liste">
+      <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Kelchstr.+23%2C+12169+Berlin" target="_blank" rel="noopener" aria-label="Route zur Kelchstr. 23, 12169 Berlin planen (öffnet Google Maps in einem neuen Fenster)">
+        <span class="fragen__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span>Kelchstr. 23<br>12169 Berlin<small>Route planen</small></span></a></li>
+      <li><a href="mailto:info@puchmayr.de">
+        <span class="fragen__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span>info@puchmayr.de<small>E-Mail schreiben</small></span></a></li>
+      <li><a href="#kontakt">
+        <span class="fragen__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+        <span>Kontaktformular<small>Anfrage senden</small></span></a></li>
+      <li><a href="tel:+49307963315">
+        <span class="fragen__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+        <span>030 7963315<small>Mo–Do 08:00–17:30, Fr 08:00–16:00 Uhr</small></span></a></li>
+    </ul>
   </div>
 </section>
 
@@ -1017,8 +1021,10 @@
         </ul>
       </div>
       <div>
-        <h3>Rechtliches</h3>
+        <h3>Informationen</h3>
         <ul>
+          <li><a href="downloads.html">Downloads</a></li>
+          <li><a href="partner.html">Unsere Partner</a></li>
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
           <li><a href="gleichstellung.html">Gleichstellungshinweis</a></li>

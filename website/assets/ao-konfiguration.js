@@ -36,27 +36,9 @@ window.AO_EINWILLIGUNG = {
         dauer: '12 Monate'
       }]
     },
-    {
-      id: 'medien',
-      name: 'Karten und Videos',
-      kurz: 'Laedt die Anfahrtskarte von Google Maps und das Video zum Berliner Inklusionspreis von YouTube. Erst dann wird Ihre IP-Adresse an Google uebertragen.',
-      dienste: [
-        {
-          name: 'Google Maps',
-          anbieter: 'Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland',
-          zweck: 'Zeigt die Anfahrt zum Labor auf einer interaktiven Karte.',
-          art: 'Einbettung ueber iframe, Uebertragung der IP-Adresse, Verarbeitung auch in den USA moeglich',
-          dauer: 'Siehe Datenschutzerklaerung von Google'
-        },
-        {
-          name: 'YouTube',
-          anbieter: 'Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland',
-          zweck: 'Spielt das Video zur Verleihung des Berliner Inklusionspreises ab.',
-          art: 'Einbettung im Modus mit erweitertem Datenschutz ueber youtube-nocookie.com',
-          dauer: 'Siehe Datenschutzerklaerung von Google'
-        }
-      ]
-    },
+    /* Die Kategorie "Karten und Videos" ist seit Fassung 2 entfallen: Das Video liegt
+       auf dem eigenen Server, statt der Google-Karte gibt es nur noch einen Routenlink.
+       Damit gibt es nichts mehr, dem zugestimmt werden muss, und es erscheint kein Banner. */
   ]
 };
 

@@ -781,3 +781,82 @@ summary:focus-visible,[tabindex]:focus-visible{
 
 /* Honeypot: fuer Menschen unsichtbar, fuer Bots ein normales Feld */
 .form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ============================================================
+   NOCH FRAGEN? Band vor der Fußzeile (Element der bisherigen Seite)
+   ============================================================ */
+.fragen{position:relative;isolation:isolate;overflow:hidden;background:var(--navy);color:#fff;text-align:center;padding:clamp(64px,8vw,104px) 0}
+.fragen__bg{position:absolute;inset:0;z-index:-1}
+.fragen__bg picture{height:100%}
+.fragen__bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.3) contrast(1.05)}
+.fragen__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,61,111,.84),rgba(26,44,79,.88))}
+.fragen__bg::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 18% 60% at 7% 50%,rgba(255,255,255,.11) 0 98%,transparent 100%),
+    radial-gradient(ellipse 13% 42% at 25% 90%,rgba(255,255,255,.08) 0 98%,transparent 100%),
+    radial-gradient(ellipse 17% 58% at 86% 35%,rgba(255,255,255,.1) 0 98%,transparent 100%),
+    radial-gradient(ellipse 11% 38% at 96% 88%,rgba(255,255,255,.11) 0 98%,transparent 100%);
+}
+.fragen h2{color:#fff;margin-bottom:14px}
+.fragen__lead{color:rgba(255,255,255,.88);font-weight:400;max-width:62ch;margin:0 auto 46px}
+.fragen__liste{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.fragen__liste a{display:flex;flex-direction:column;align-items:center;gap:14px;text-decoration:none;color:#fff;font-weight:400;line-height:1.45;border-radius:var(--r);padding:8px}
+.fragen__liste small{display:block;margin-top:4px;font-size:.84rem;color:rgba(255,255,255,.72)}
+.fragen__ico{width:58px;height:58px;border-radius:50%;border:2px solid rgba(255,255,255,.85);display:grid;place-items:center;transition:background .2s ease,color .2s ease}
+.fragen__ico svg{width:24px;height:24px}
+/* Hover: Kreis füllt sich weiß, Symbol wird blau. Vordergrund im selben Selektor. */
+.fragen__liste a:hover .fragen__ico,.fragen__liste a:focus-visible .fragen__ico{background:#fff;color:var(--navy)}
+.fragen__liste a:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media (max-width:900px){.fragen__liste{grid-template-columns:1fr 1fr;gap:30px 16px}}
+@media (max-width:420px){.fragen__liste{grid-template-columns:1fr}}
+
+/* Video vom eigenen Server */
+.video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--navy-ink)}
+
+/* ============================================================
+   LESBARKEIT: kleine Texte im Schnitt 400
+   Open Sans Light (300) ist in großen Absätzen angenehm, unter
+   etwa 15 px wirkt es auf vielen Bildschirmen zu blass.
+   ============================================================ */
+.feature p,.card p,.step p,.svc__item p,.matcard p,.crosslink p,
+.form__hint,.consent,.field input,.field textarea,
+.rating__sub,.quote__who,.preis__zahl span,.preis blockquote footer,
+.crumbs,.award p,.b-kpi .kpi__l,.info p,.summary li,
+body > footer,.foot__bar,.faq details p,.legal dd,
+.download__meta,.partner p{font-weight:400}
+.video video{object-position:center 18%}
+
+/* Nur für Screenreader sichtbar */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ============================================================
+   DOWNLOADS
+   ============================================================ */
+.downloads{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.download{
+  display:flex;gap:16px;align-items:flex-start;height:100%;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 22px;
+  text-decoration:none;color:var(--navy);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.download:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--blue-soft)}
+.download__ico{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;flex:none;transition:background .2s ease}
+.download:hover .download__ico{background:var(--blue);color:#fff}
+.download__ico svg{width:21px;height:21px}
+.download__titel{display:block;font-weight:600;line-height:1.35;margin-bottom:4px}
+.download__meta{display:block;font-size:.85rem;color:var(--muted)}
+
+/* ============================================================
+   PARTNER
+   ============================================================ */
+.partnerliste{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.partner{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;display:flex;flex-direction:column}
+.partner h3{margin-bottom:10px}
+.partner p{font-size:.94rem;color:var(--muted);margin:0 0 18px}
+.partner__link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--blue);text-decoration:none}
+.partner__link svg{width:14px;height:14px}
+.partner__link:hover{color:var(--navy);text-decoration:underline}
+
+@media (max-width:1000px){.downloads,.partnerliste{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.downloads,.partnerliste{grid-template-columns:1fr}}

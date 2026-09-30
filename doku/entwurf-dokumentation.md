@@ -27,6 +27,29 @@ Was sich geändert hat:
 - **Sektionen:** gerade Kanten statt Schrägkanten, runde Icon-Kreise, Eckenradius 6 px.
 - Struktur, Texte, Bilder, Formular, Banner und Unterseiten sind unverändert.
 
+## Fassung 2.1 (30.09.2026): kein Banner mehr, Downloads, Partner, „Noch Fragen?"
+
+- **Kein Einwilligungsbanner mehr.** Das Video zum Inklusionspreis liegt wie auf der alten
+  Seite als MP4 auf dem eigenen Server (`video/`), die Google-Karte ist entfallen. Statt
+  der Karte gibt es einen Link „Route planen", der Google Maps erst beim Klick öffnet.
+  In `ao-konfiguration.js` ist die Kategorie „Karten und Videos" entfernt, damit zeigt
+  `einwilligung.js` kein Fenster und blendet den Fußzeilen-Knopf aus. Die Technik bleibt
+  im Paket, falls später Analytics dazukommt.
+- **Datenschutzerklärung angepasst** (Punkte 6, 8 und 9). Dem Kunden zeigen.
+- **Neue Seite `downloads.html`** mit den zwölf PDFs der alten Seite (`downloads/`),
+  gegliedert wie früher: Laborunterlagen, Zahnarztinformationen, Patienteninformationen.
+  Menüpunkt „Downloads" auf allen Seiten.
+- **Neue Seite `partner.html`** mit den Texten der alten Partnerseite (ohne Fremdlogos).
+- **Band „Noch Fragen?"** vor der Fußzeile auf allen Seiten, wie auf der alten Seite:
+  blau eingefärbtes Foto, vier runde Symbole (Route, E-Mail, Formular, Telefon).
+  Ersetzt auf der Startseite die Karte und auf den Leistungsseiten das blaue CTA-Band.
+- **Lesbarkeit:** kleine Texte (Karten, Fußzeile, Formularhinweise) im Schnitt 400,
+  Fließtext bleibt im Schnitt 300.
+- **Weiterleitungen** der alten Contao-Adressen in `.htaccess` vorbereitet (greifen erst
+  beim Livegang auf All-Inkl).
+- `neue-seiten.py` (im Projektordner) erzeugt Downloads und Partner aus der Vorlage
+  `vollkeramik.html`. Handänderungen an diesen beiden Seiten auch dort nachziehen.
+
 ## Öffnen
 
 **Empfohlen: `vorschau.command` doppelklicken.** Es startet einen kleinen Webserver in
