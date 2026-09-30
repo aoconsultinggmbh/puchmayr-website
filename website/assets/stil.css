@@ -176,17 +176,19 @@ header.solid .nav__burger span{background:var(--navy)}
 .hero__actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:18px 26px;margin-bottom:34px}
 .hero__actions .phone-link{color:#fff}
 
-.rating{display:flex;align-items:center;justify-content:center;gap:13px}
+.rating{display:flex;align-items:center;justify-content:center;gap:14px}
 .rating__g{
-  width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;
-  flex:none;box-shadow:0 2px 8px -2px rgba(0,0,0,.35);
+  width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;
+  flex:none;box-shadow:0 2px 10px -2px rgba(0,0,0,.4);
 }
 /* Google-Zeichen in den Originalfarben, wie in den anderen AO-Projekten */
-.rating__g svg{width:19px;height:19px;display:block}
+.rating__g svg{width:24px;height:24px;display:block}
+.rating__body{text-align:left}
+.rating__top{display:flex;align-items:center;gap:10px;line-height:1}
+.rating__top b{color:#fff;font-size:1.2rem;font-weight:700}
 .stars{display:flex;gap:2px}
-.stars svg{width:15px;height:15px;color:#FBBC05}
-.rating__txt{font-size:.83rem;color:rgba(255,255,255,.82);line-height:1.35}
-.rating__txt b{display:block;color:#fff;font-size:.9rem}
+.stars svg{width:18px;height:18px;color:#F5A623}
+.rating__sub{font-size:.9rem;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.35}
 
 /* ---------- Sections ---------- */
 section{position:relative}
